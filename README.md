@@ -1,37 +1,92 @@
-# Invera ToDo-List Challenge (Python/Django Jr-SSr)
+# API Lista de tareas
 
-El propósito de esta prueba es conocer tu capacidad para crear una pequeña aplicación funcional en un límite de tiempo. A continuación, encontrarás las funciones, los requisitos y los puntos clave que debés tener en cuenta durante el desarrollo.
+Pequeña api para crear, listar, editar y eliminar tareas.
 
-## Qué queremos que hagas:
+### pasos previos antes de su utilizacion
 
-- El Challenge consiste en crear una aplicación web sencilla que permita a los usuarios crear y mantener una lista de tareas.
-- La entrega del resultado será en un nuevo fork de este repo y deberás hacer una pequeña demo del funcionamiento y desarrollo del proyecto ante un super comité de las más grandes mentes maestras de Invera, o a un par de devs, lo que sea más fácil de conseguir.
-- Podes contactarnos en caso que tengas alguna consulta.
+1. Clonar este repositorio
 
-## Objetivos:
+`git clone https://github.com/Vosinepi/todo-challenge-invera`
 
-El usuario de la aplicación tiene que ser capaz de:
+2. Ejecutar conteiner de docker
 
-- Autenticarse
-- Crear una tarea
-- Eliminar una tarea
-- Marcar tareas como completadas
-- Poder ver una lista de todas las tareas existentes
-- Filtrar/buscar tareas por fecha de creación y/o por el contenido de la misma
+`docker-compose up`
 
-## Qué evaluamos:
+3. Ejecutar entorno virtual
 
-- Desarrollo utilizando Python, Django. No es necesario crear un Front-End, pero sí es necesario tener una API que permita cumplir con los objetivos de arriba.
-- Uso de librerías y paquetes estandares que reduzcan la cantidad de código propio añadido.
-- Calidad y arquitectura de código. Facilidad de lectura y mantenimiento del código. Estándares seguidos.
-- [Bonus] Manejo de logs.
-- [Bonus] Creación de tests (unitarias y de integración)
-- [Bonus] Unificar la solución propuesta en una imagen de Docker por repositorio para poder ser ejecutada en cualquier ambiente (si aplica para full stack).
+`source venv/bin/activate`
 
-## Requerimientos de entrega:
+4. Instalar dependencias
 
-- Hacer un fork del proyecto y pushearlo en github. Puede ser privado.
-- La solución debe correr correctamente.
-- El Readme debe contener todas las instrucciones para poder levantar la aplicación, en caso de ser necesario, y explicar cómo se usa.
-- Disponibilidad para realizar una pequeña demo del proyecto al finalizar el challenge.
-- Tiempo para la entrega: Aproximadamente 7 días.
+`pip install -r requirements.txt`
+
+5. Ejecutar migraciones
+
+`python manage.py migrate`
+
+6. Crear super usuario
+
+`python manage.py createsuperuser`
+
+username: admin
+email: admin@amdmin.com
+password: admin
+
+7. Ejecutar servidor
+
+`python manage.py runserver`
+
+### Para acceder a la api hay que ingresar las credenciales
+
+- login
+  `http://127.0.0.1:8000/lista_tareas/authentication/login`
+- logout
+  `http://127.0.0.1:8000/lista_tareas/authentication/logout`
+- user
+  `http://127.0.0.1:8000/lista_tareas/authentication/user`
+- registro
+  `http://127.0.0.1:8000/lista_tareas/registration/`
+
+## ENDPOINTS
+
+Listado de tareas
+
+`http://127.0.0.1:8000/lista_tareas/listado/`
+
+Crear tarea POST
+
+`http://127.0.0.1:8000/lista_tareas/listado/`
+
+Ver tarea
+
+`http://127.0.0.1:8000/lista_tareas/tarea/<pk>/`
+
+Editar tarea PUT
+
+`http://127.0.0.1:8000/lista_tareas/tarea/<pk>/`
+
+Eliminar tarea DELETE
+
+`http://127.0.0.1:8000/lista_tareas/tarea/<pk>/`
+
+Actualizar estado de tarea
+
+`http://127.0.0.1:8000/lista_tareas/tarea/<pk>/`
+
+### Buscar tareas FILTER
+
+`http://127.0.0.1:8000/lista_tareas/buscar/?search=`
+
+## Documentacion consultada
+
+Libreria API REST
+
+- [Django Rest Framework](https://www.django-rest-framework.org/)
+
+Libreria para autenticacion por token
+
+- [Django Rest Auth](https://dj-rest-auth.readthedocs.io/en/latest/)
+
+Libreria para crear usuarios
+
+- [Django Allauth](https://django-allauth.readthedocs.io/en/latest/index.html)
