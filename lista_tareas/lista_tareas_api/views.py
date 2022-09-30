@@ -48,7 +48,10 @@ class Buscar_tarea_api(generics.ListAPIView):
     queryset = Tareas.objects.all()
     serializer_class = TareasSerializer
     filter_backends = [filters.SearchFilter]
-    search_fields = ["descripcion", "fecha_creacion"]
+    search_fields = [
+        "descripcion",
+        "fecha_creacion",
+    ]  # campos por los que se puede buscar
 
 
 """

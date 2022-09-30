@@ -11,7 +11,7 @@ class Tareas(models.Model):
     - descripcion
     - fecha_creacion
     - estado de la tarea
-    - usuario que la crea
+    - usuario que crea la tarea
     """
 
     titulo = models.CharField(max_length=100)

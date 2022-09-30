@@ -18,17 +18,27 @@ Libreria para crear usuarios
 
 ## pasos previos antes de su utilizacion
 
+---
+
 Clonar este repositorio
 
 `git clone https://github.com/Vosinepi/todo-challenge-invera`
 
 ### Con Docker
 
+instalar Docker y docker-compose
+
 1. Si desea utilizar el conteiner de docker, dentro de la carpeta del docker_lista_tareas ejecutar el siguiente comando
+
+`docker-compose build`
 
 `docker-compose up`
 
 Saldran varios mensajes en la consola, cuando termine de ejecutarse, se podra acceder a la api en el siguiente enlace http://127.0.0.1:8000/lista_tareas/
+
+De ser requerido se puede descarga la imagen de docker desde el siguiente enlace https://hub.docker.com/repository/docker/laimas/lista_tarea
+
+`docker pull laimas/lista_tarea:latest`
 
 ### Sin Docker con virtualenv
 
@@ -57,6 +67,8 @@ password: admin
 `python manage.py runserver`
 
 ### Para acceder a la api hay que ingresar las credenciales
+
+---
 
 - login
   `http://127.0.0.1:8000/lista_tareas/authentication/login`
@@ -98,6 +110,8 @@ Actualizar estado de tarea
 `http://127.0.0.1:8000/lista_tareas/buscar/?search=`
 
 ## Documentacion consultada
+
+---
 
 Libreria API REST
 
