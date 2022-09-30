@@ -16,6 +16,10 @@ Libreria para crear usuarios
 
 - [Django Allauth](https://django-allauth.readthedocs.io/en/latest/index.html)
 
+Docker para contenerizar la api
+
+- [Docker](https://docs.docker.com/get-started/)
+
 ## pasos previos antes de su utilizacion
 
 ---
