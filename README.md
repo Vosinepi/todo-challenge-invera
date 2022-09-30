@@ -2,7 +2,21 @@
 
 Pequeña api para crear, listar, editar y eliminar tareas.
 
-### pasos previos antes de su utilizacion
+## Documentacion consultada
+
+Libreria API REST
+
+- [Django Rest Framework](https://www.django-rest-framework.org/)
+
+Libreria para autenticacion por token
+
+- [Django Rest Auth](https://dj-rest-auth.readthedocs.io/en/latest/)
+
+Libreria para crear usuarios
+
+- [Django Allauth](https://django-allauth.readthedocs.io/en/latest/index.html)
+
+## pasos previos antes de su utilizacion
 
 1. Clonar este repositorio
 

@@ -10,7 +10,7 @@ from .models import Tareas
 from .serializer import TareasSerializer
 
 
-# Create your views here.
+# Vistas
 
 
 class Tareas_listado_api(generics.ListCreateAPIView):
@@ -18,9 +18,46 @@ class Tareas_listado_api(generics.ListCreateAPIView):
     ENDPOINT para la lista de tareas.
     """
 
+    # permisos
+    permission_classes = [permissions.IsAuthenticated]
+
     queryset = Tareas.objects.all()
     serializer_class = TareasSerializer
+
+
+class Tarea_detalle_api(generics.RetrieveUpdateDestroyAPIView):
+    """
+    ENDPOINT para tarea que permite BORRAR, EDITAR o cambiar el ESTADO.
+    """
+
+    # permisos
     permission_classes = [permissions.IsAuthenticated]
+
+    queryset = Tareas.objects.all()
+    serializer_class = TareasSerializer
+
+
+class Buscar_tarea_api(generics.ListAPIView):
+    """
+    ENDPOINT para buscar tareas por titulo.
+    """
+
+    # permisos
+    permission_classes = [permissions.IsAuthenticated]
+
+    queryset = Tareas.objects.all()
+    serializer_class = TareasSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ["descripcion", "fecha_creacion"]
+
+
+"""
+Vistas creadas con APIView para una primera prueba.
+Luego como se puede ver en el código, se han sustituido por las vistas
+generics.ListCreateAPIView, generics.RetrieveUpdateDestroyAPIView y generics.ListAPIView
+que permiten hacer un uso mas eficiente de la libreria REST.
+
+"""
 
 
 # class Tareas_listado_api(APIView):
@@ -55,16 +92,6 @@ class Tareas_listado_api(generics.ListCreateAPIView):
 #             serializer.save()
 #             return Response(serializer.data, status=status.HTTP_201_CREATED)
 #         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-class Tarea_detalle_api(generics.RetrieveUpdateDestroyAPIView):
-    """
-    ENDPOINT para tarea que permite BORRAR, EDITAR o cambiar el ESTADO.
-    """
-
-    queryset = Tareas.objects.all()
-    serializer_class = TareasSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
 
 # class Tarea_detalle_api(APIView):
@@ -113,15 +140,3 @@ class Tarea_detalle_api(generics.RetrieveUpdateDestroyAPIView):
 #         tarea = Tareas.objects.get(id=pk)
 #         tarea.delete()
 #         return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-class Buscar_tarea_api(generics.ListAPIView):
-    """
-    ENDPOINT para buscar tareas por titulo.
-    """
-
-    queryset = Tareas.objects.all()
-    serializer_class = TareasSerializer
-    permission_classes = [permissions.IsAuthenticated]
-    filter_backends = [filters.SearchFilter]
-    search_fields = ["descripcion", "fecha_creacion"]
