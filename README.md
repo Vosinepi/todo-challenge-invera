@@ -18,27 +18,33 @@ Libreria para crear usuarios
 
 ## pasos previos antes de su utilizacion
 
-1. Clonar este repositorio
+Clonar este repositorio
 
 `git clone https://github.com/Vosinepi/todo-challenge-invera`
 
-2. Ejecutar conteiner de docker
+### Con Docker
+
+1. Si desea utilizar el conteiner de docker, dentro de la carpeta del docker_lista_tareas ejecutar el siguiente comando
 
 `docker-compose up`
 
-3. Ejecutar entorno virtual
+Saldran varios mensajes en la consola, cuando termine de ejecutarse, se podra acceder a la api en el siguiente enlace http://127.0.0.1:8000/lista_tareas/
+
+### Sin Docker con virtualenv
+
+1. Ejecutar entorno virtual
 
 `source venv/bin/activate`
 
-4. Instalar dependencias
+2. Instalar dependencias
 
 `pip install -r requirements.txt`
 
-5. Ejecutar migraciones
+3. Ejecutar migraciones
 
 `python manage.py migrate`
 
-6. Crear super usuario
+4. Crear super usuario
 
 `python manage.py createsuperuser`
 
@@ -46,7 +52,7 @@ username: admin
 email: admin@amdmin.com
 password: admin
 
-7. Ejecutar servidor
+5. Ejecutar servidor
 
 `python manage.py runserver`
 
@@ -104,3 +110,7 @@ Libreria para autenticacion por token
 Libreria para crear usuarios
 
 - [Django Allauth](https://django-allauth.readthedocs.io/en/latest/index.html)
+
+Docker para contenerizar la api
+
+- [Docker](https://docs.docker.com/get-started/)
