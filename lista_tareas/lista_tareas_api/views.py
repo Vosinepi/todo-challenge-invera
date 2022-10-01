@@ -1,4 +1,6 @@
 # rest_framework
+from dataclasses import dataclass
+from requests import request
 from rest_framework import status, permissions, generics, filters
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -10,8 +12,10 @@ from django.shortcuts import render
 from .models import Tareas
 
 # serializador
-from .serializer import TareasSerializer
+from .serializer import TareasSerializer, TareasUsuarioSerializer
 
+# permisos
+from .utils.permisos_users import SoloPuedoEditarMisTareas
 
 # Vistas
 
@@ -24,8 +28,38 @@ class Tareas_listado_api(generics.ListCreateAPIView):
     # permisos
     permission_classes = [permissions.IsAuthenticated]
 
-    queryset = Tareas.objects.all()
-    serializer_class = TareasSerializer
+    def get_queryset(self):
+        """
+        Sobreescribimos el método para que el usuario
+        solo vea sus tareas. Salvo sea superusuario.
+        """
+        if self.request.user.is_superuser:
+
+            return Tareas.objects.all()
+        else:
+
+            return Tareas.objects.filter(usuario=self.request.user)
+
+    def get_serializer_class(self):
+        """
+        Sobreescribimos el método para que el usuario
+        solo pueda editar su tarea. Salvo sea superusuario.
+        """
+        if self.request.user.is_superuser:
+            return TareasSerializer
+        else:
+            return TareasUsuarioSerializer
+
+    def perform_create(self, serializer):
+        """
+        Sobreescribimos el método para que el usuario
+        que crea la tarea sea el usuario autenticado.
+
+        """
+        if self.request.user.is_superuser:
+            serializer.save()
+        else:
+            serializer.save(usuario=self.request.user)
 
 
 class Tarea_detalle_api(generics.RetrieveUpdateDestroyAPIView):
@@ -34,10 +68,39 @@ class Tarea_detalle_api(generics.RetrieveUpdateDestroyAPIView):
     """
 
     # permisos
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [
+        permissions.IsAuthenticated,
+        SoloPuedoEditarMisTareas,
+    ]
 
-    queryset = Tareas.objects.all()
-    serializer_class = TareasSerializer
+    def get_queryset(self):
+        if self.request.user.is_superuser:
+            return Tareas.objects.all()
+        else:
+            return Tareas.objects.filter(usuario=self.request.user)
+
+    def get_serializer_class(self):
+        """
+        Sobreescribimos el método para que el usuario
+        solo pueda editar su tarea. Salvo sea superusuario.
+        """
+        if self.request.user.is_superuser:
+            return TareasSerializer
+        else:
+            return TareasUsuarioSerializer
+
+    def perform_create(self, serializer):
+        """
+        Sobreescribimos el método para que el usuario
+        que crea la tarea sea el usuario autenticado.
+        Salvo sea superusuario que puede elegir crear tareas a nombre
+        otros usuarios.
+
+        """
+        if self.request.user.is_superuser:
+            serializer.save()
+        else:
+            serializer.save(usuario=self.request.user)
 
 
 class Buscar_tarea_api(generics.ListAPIView):
@@ -48,10 +111,16 @@ class Buscar_tarea_api(generics.ListAPIView):
     # permisos
     permission_classes = [permissions.IsAuthenticated]
 
-    queryset = Tareas.objects.all()
+    def get_queryset(self):
+        if self.request.user.is_superuser:
+            return Tareas.objects.all()
+        else:
+            return Tareas.objects.filter(usuario=self.request.user)
+
     serializer_class = TareasSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = [
+        "titulo",
         "descripcion",
         "fecha_creacion",
     ]  # campos por los que se puede buscar
