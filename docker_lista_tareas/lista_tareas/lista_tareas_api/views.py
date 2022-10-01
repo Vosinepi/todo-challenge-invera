@@ -1,7 +1,10 @@
-from django.shortcuts import render
+# rest_framework
 from rest_framework import status, permissions, generics, filters
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
+# django
+from django.shortcuts import render
 
 # modelo
 from .models import Tareas
