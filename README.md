@@ -75,43 +75,43 @@ password: admin
 ---
 
 - login
-  `http://127.0.0.1:8000/lista_tareas/authentication/login`
+  `http://127.0.0.1:8000/lista_tareas/v1/authentication/login`
 - logout
-  `http://127.0.0.1:8000/lista_tareas/authentication/logout`
+  `http://127.0.0.1:8000/lista_tareas/v1/authentication/logout`
 - user
-  `http://127.0.0.1:8000/lista_tareas/authentication/user`
+  `http://127.0.0.1:8000/lista_tareas/v1/authentication/user`
 - registro
-  `http://127.0.0.1:8000/lista_tareas/registration/`
+  `http://127.0.0.1:8000/lista_tareas/v1/registration/`
 
 ## ENDPOINTS
 
 Listado de tareas
 
-`http://127.0.0.1:8000/lista_tareas/listado/`
+`http://127.0.0.1:8000/lista_tareas/v1/listado/`
 
 Crear tarea POST
 
-`http://127.0.0.1:8000/lista_tareas/listado/`
+`http://127.0.0.1:8000/lista_tareas/v1/listado/`
 
 Ver tarea
 
-`http://127.0.0.1:8000/lista_tareas/tarea/<pk>/`
+`http://127.0.0.1:8000/lista_tareas/v1/tarea/<pk>/`
 
 Editar tarea PUT
 
-`http://127.0.0.1:8000/lista_tareas/tarea/<pk>/`
+`http://127.0.0.1:8000/lista_tareas/v1/tarea/<pk>/`
 
 Eliminar tarea DELETE
 
-`http://127.0.0.1:8000/lista_tareas/tarea/<pk>/`
+`http://127.0.0.1:8000/lista_tareas/v1/tarea/<pk>/`
 
 Actualizar estado de tarea
 
-`http://127.0.0.1:8000/lista_tareas/tarea/<pk>/`
+`http://127.0.0.1:8000/lista_tareas/v1/tarea/<pk>/`
 
 ### Buscar tareas FILTER
 
-`http://127.0.0.1:8000/lista_tareas/buscar/?search=`
+`http://127.0.0.1:8000/lista_tareas/v1/buscar/?search=`
 
 ## Documentacion consultada
 

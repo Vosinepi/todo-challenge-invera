@@ -1,4 +1,7 @@
+# rest_framework
 from rest_framework import serializers
+
+# modelo
 from .models import Tareas
 
 
