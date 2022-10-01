@@ -72,6 +72,8 @@ password: admin
 
 ### Para acceder a la api hay que ingresar las credenciales
 
+solo se puede acceder a la api si se esta autenticado y cada usuario solo puede ver sus tareas y editarlas salvo que sea superusuario.
+
 ---
 
 - login
