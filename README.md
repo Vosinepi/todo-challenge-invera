@@ -32,7 +32,8 @@ TODO-CHALLENGE-INVERA
 ├───docker_lista_tareas
 │   │   docker-compose.yaml
 │   │   Dockerfile
-│   │
+│   |   requirements.txt
+|   |
 │   └───lista_tareas
 │       │   db.sqlite3
 │       │   manage.py
