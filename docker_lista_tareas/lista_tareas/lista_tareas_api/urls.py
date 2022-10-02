@@ -12,6 +12,6 @@ urlpatterns = [
     path("buscar/", Buscar_tarea_api.as_view()),
     path("authentication/", include("dj_rest_auth.urls")),  # urls de autenticación
     path(
-        "registration/", include("dj_rest_auth.registration.urls")
+        "registration/", include("dj_rest_auth.registration.urls")  # urls de registro
     ),  # urls de registro
 ]
