@@ -190,22 +190,4 @@ Actualizar estado de tarea
 
 `http://127.0.0.1:8000/lista_tareas/v1/buscar/?search=`
 
-## Documentacion consultada
-
 ---
-
-Libreria API REST
-
-- [Django Rest Framework](https://www.django-rest-framework.org/)
-
-Libreria para autenticacion por token
-
-- [Django Rest Auth](https://dj-rest-auth.readthedocs.io/en/latest/)
-
-Libreria para crear usuarios
-
-- [Django Allauth](https://django-allauth.readthedocs.io/en/latest/index.html)
-
-Docker para contenerizar la api
-
-- [Docker](https://docs.docker.com/get-started/)
