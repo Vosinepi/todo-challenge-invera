@@ -153,6 +153,8 @@ solo se puede acceder a la api si se esta autenticado y cada usuario solo puede 
 
 - login
   `http://127.0.0.1:8000/lista_tareas/v1/authentication/login`
+- token
+  `http://127.0.0.1:8000/lista_tareas/v1/token/`
 - logout
   `http://127.0.0.1:8000/lista_tareas/v1/authentication/logout`
 - user
@@ -162,7 +164,7 @@ solo se puede acceder a la api si se esta autenticado y cada usuario solo puede 
 
 ## ENDPOINTS
 
-Listado de tareas
+Listado de tareas GET
 
 `http://127.0.0.1:8000/lista_tareas/v1/listado/`
 
@@ -170,7 +172,7 @@ Crear tarea POST
 
 `http://127.0.0.1:8000/lista_tareas/v1/listado/`
 
-Ver tarea
+Ver tarea GET
 
 `http://127.0.0.1:8000/lista_tareas/v1/tarea/<pk>/`
 
@@ -191,3 +193,12 @@ Actualizar estado de tarea
 `http://127.0.0.1:8000/lista_tareas/v1/buscar/?search=`
 
 ---
+
+Posibles upgrades:
+
+- agregar mas filtros
+- agregar mas campos a la tarea
+- agregar mas campos al usuario
+- autenticacion con redes sociales
+- JWT token para la autenticacion y mejora de seguridad
+- implementar un frontend de ser necesario

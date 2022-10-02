@@ -43,9 +43,9 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "dj_rest_auth",
     # creacion de usuarios
-    "django.contrib.sites",
     "allauth",
     "allauth.account",
+    "dj_rest_auth.registration",
     # Aplicaciones
     "lista_tareas_api",
 ]
@@ -142,6 +142,7 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.TokenAuthentication",
     ],
 }
+
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
