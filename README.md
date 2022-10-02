@@ -20,6 +20,81 @@ Docker para contenerizar la api
 
 - [Docker](https://docs.docker.com/get-started/)
 
+```
+TODO-CHALLENGE-INVERA
+|
+│   .gitIgnore
+│   LICENSE
+│   README.md
+│   README_challenge_Invera.md
+│   requirements.txt
+│
+├───docker_lista_tareas
+│   │   docker-compose.yaml
+│   │   Dockerfile
+│   │
+│   └───lista_tareas
+│       │   db.sqlite3
+│       │   manage.py
+│       │   requirements.txt
+│       │
+│       ├───lista_tareas
+│       │       asgi.py
+│       │       settings.py
+│       │       urls.py
+│       │       wsgi.py
+│       │       __init__.py
+│       │
+│       └───lista_tareas_api
+│           │   admin.py
+│           │   apps.py
+│           │   models.py
+│           │   serializer.py
+│           │   tests.py
+│           │   urls.py
+│           │   views.py
+│           │   __init__.py
+│           │
+│           ├───migrations
+│           │       0001_initial.py
+│           │       __init__.py
+│           │
+│           └───utils
+│                   permisos_users.py
+│                   __init__.py
+│
+└───lista_tareas
+    │   db.sqlite3
+    │   manage.py
+    │   requirements.txt
+    │
+    ├───lista_tareas
+    │       asgi.py
+    │       settings.py
+    │       urls.py
+    │       wsgi.py
+    │       __init__.py
+    │
+    └───lista_tareas_api
+        │   admin.py
+        │   apps.py
+        │   models.py
+        │   serializer.py
+        │   tests.py
+        │   urls.py
+        │   views.py
+        │   __init__.py
+        │
+        ├───migrations
+        │       0001_initial.py
+        │       __init__.py
+        │
+        └───utils
+                permisos_users.py
+                __init__.py
+
+```
+
 ## pasos previos antes de su utilizacion
 
 ---

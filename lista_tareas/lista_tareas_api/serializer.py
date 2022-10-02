@@ -1,5 +1,4 @@
 # rest_framework
-from tkinter import HIDDEN
 from rest_framework import serializers
 
 # modelo
@@ -19,8 +18,7 @@ class TareasSerializer(serializers.ModelSerializer):
 
 class TareasUsuarioSerializer(serializers.ModelSerializer):
     """
-    Convertimos el modelo de tareas en un formato API como JSON.
-    Rest Framework utiliza la clase ModelSerializer para convertir modelos.
+    Serializador para las tareas de un usuario.
     """
 
     class Meta:

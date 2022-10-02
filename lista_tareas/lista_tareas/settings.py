@@ -148,5 +148,7 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 SITE_ID = 1
 
 ACCOUNT_AUTHENTICATION_METHOD = "username"
+
+# evita que se pueda logear con el email y la verificacion de email. Para esta prueba no es necesario
 ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_EMAIL_VERIFICATION = "none"
